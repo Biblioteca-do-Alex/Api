@@ -19,9 +19,9 @@ Confira as principais Linguagens, Frameworks e Bancos de Dados usados:
 ## 🤝 Colaboradores
 
 Nossos colaboradores do Projeto são:
-- <a href="https://github.com/nicolasruoco">Nícolas Albano</a>
-- <a href="https://github.com/ArturCassu">Ana Beatriz Romera</a>
-- <a href="">Samira de Souza</a>
+- <a href="https://github.com/nicolasruoco" target="_blank">Nícolas Albano</a>
+- <a href="https://github.com/AnaBeatrizRomera" target="_blank">Ana Beatriz Romera</a>
+- <a href="https://github.com/SamiraSouza07" target="_blank">Samira de Souza</a>
 - [Se mais alguém ajudar nessa etapa, se adicionem pf!!]
 
 ## 👍 Commits Semânticos 
