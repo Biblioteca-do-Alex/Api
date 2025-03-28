@@ -1,0 +1,43 @@
+package org.example.bibliotecaalex.models;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "Usuario")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "ID único do usuário", example = "1")
+    private Long id;
+
+    @NotNull(message = "O nome não pode ser nulo")
+    @Size(max = 255, message = "O nome deve ter no máximo 255 caracteres")
+    @Schema(description = "Nome do usuário", example = "João Silva")
+    @Column(name = "nome", nullable = false, length = 255)
+    private String nome;
+
+    @Schema(description = "Endereço do usuário", example = "Rua das Flores, 123")
+    @Column(name = "endereco", columnDefinition = "TEXT")
+    private String endereco;
+
+    @Size(max = 20, message = "O telefone deve ter no máximo 20 caracteres")
+    @Schema(description = "Número de telefone do usuário", example = "(11) 91234-5678")
+    @Column(name = "telefone", length = 20)
+    private String telefone;
+
+    @NotNull(message = "O email não pode ser nulo")
+    @Email(message = "O email deve ser válido")
+    @Size(max = 255, message = "O email deve ter no máximo 255 caracteres")
+    @Schema(description = "Email do usuário", example = "joao@email.com")
+    @Column(name = "email", nullable = false, length = 255, unique = true)
+    private String email;
+}
