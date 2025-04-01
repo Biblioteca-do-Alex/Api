@@ -28,11 +28,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST).permitAll()
-                        .requestMatchers("/swagger-ui/**",  "/v3/api-docs/**","/api/usuarios/salvar","/favicon.ico/**").permitAll()
-                        .requestMatchers("/api/usuarios/login", "/**" ).permitAll()
-
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
