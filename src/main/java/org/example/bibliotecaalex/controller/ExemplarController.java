@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/exemplares")
-@CrossOrigin(origins = {"http://localhost:3000", "https://biblioteca-do-alex.onrender.com"})
 public class ExemplarController {
 
     private final ExemplarService exemplarService;

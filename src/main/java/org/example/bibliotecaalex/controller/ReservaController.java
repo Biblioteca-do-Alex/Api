@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/reservas")
-@CrossOrigin(origins = {"http://localhost:3000", "https://biblioteca-do-alex.onrender.com"})
 public class ReservaController {
 
     private final ReservaService reservaService;
