@@ -52,7 +52,7 @@ public class Livro {
 
     @Size(max = 100, message = "O gênero deve ter no máximo 100 caracteres")
     @Schema(description = "Gênero do livro", example = "Romance")
-    @Column(name = "genero", length = 100)
+    @Column(name = "generoid", length = 100)
     private String genero;
 
     @Schema(description = "URL da imagem da capa do livro", example = "https://meusite.com/imagens/livro1.jpg")
