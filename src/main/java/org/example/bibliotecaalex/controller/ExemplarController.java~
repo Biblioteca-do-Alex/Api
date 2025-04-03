@@ -43,9 +43,9 @@ public class ExemplarController {
             @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
     })
     @GetMapping("/ibsn/{ibsn}")
-    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable String id) {
+    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable String ibsn) {
         try {
-            List<Exemplar> exemplares = exemplarService.buscarPorId(id);
+            List<Exemplar> exemplares = exemplarService.buscarPorId(ibsn);
             if (exemplares.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
