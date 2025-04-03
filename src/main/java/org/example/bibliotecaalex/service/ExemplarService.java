@@ -19,6 +19,6 @@ public class ExemplarService {
     }
 
     public List<Exemplar> buscarPorId(String id){
-        return exemplarRepository.findAllByIbsn(id);
+        return exemplarRepository.findAllById(id);
     }
 }
