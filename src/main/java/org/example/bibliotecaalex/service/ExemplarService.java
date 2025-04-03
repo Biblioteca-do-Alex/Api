@@ -18,7 +18,7 @@ public class ExemplarService {
         return exemplarRepository.save(exemplar);
     }
 
-    public List<Exemplar> buscarPorIBSN(String ibsn){
-        return exemplarRepository.findAllByIbsn(ibsn);
+    public List<Exemplar> buscarPorId(String id){
+        return exemplarRepository.findAllByIbsn(id);
     }
 }
