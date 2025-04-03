@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ExemplarRepository extends JpaRepository<Exemplar, Long> {
 
-    public List<Exemplar> findAllById(String id);
+    public List<Exemplar> findAllById(Long id);
 }

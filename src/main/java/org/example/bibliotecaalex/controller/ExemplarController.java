@@ -36,14 +36,14 @@ public class ExemplarController {
         }
     }
 
-    @Operation(summary = "Buscar exemplares por IBSN")
+    @Operation(summary = "Buscar exemplares por ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Exemplares encontrados"),
             @ApiResponse(responseCode = "404", description = "Nenhum exemplar encontrado"),
             @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
     })
-    @GetMapping("/ibsn/{ibsn}")
-    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable String id) {
+    @GetMapping("/id/{id}")
+    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable Long id) {
         try {
             List<Exemplar> exemplares = exemplarService.buscarPorId(id);
             if (exemplares.isEmpty()) {
