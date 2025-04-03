@@ -73,14 +73,14 @@ public class LivroController {
 
     @Operation(summary = "Buscar os livros por IBSN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Livro retornado com sucesso"),
-            @ApiResponse(responseCode = "500", description = "Erro ao buscar livro")
+            @ApiResponse(responseCode = "200", description = "Lista de livros retornada com sucesso"),
+            @ApiResponse(responseCode = "500", description = "Erro ao buscar livros")
     })
     @GetMapping("/ibsn/{ibsn}")
-    public ResponseEntity<Livro> buscarPorIBSN(@PathVariable String ibsn) {
+    public ResponseEntity<List<Livro>> buscarPorIBSN(@PathVariable String ibsn() {
         try {
-            Livro livro = livroService.buscarPorIbsn(ibsn);
-            return ResponseEntity.ok(livro);
+            List<Livro> livros = livroService.buscarTudo();
+            return ResponseEntity.ok(livros);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

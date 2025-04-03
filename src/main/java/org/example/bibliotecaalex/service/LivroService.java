@@ -31,6 +31,10 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
+    public Livro buscarPorIbsn(String ibsn) {
+        return livroRepository.findByIbsn(ibsn);
+    }
+
 
 }
 
