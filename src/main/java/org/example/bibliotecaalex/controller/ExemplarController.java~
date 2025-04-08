@@ -43,7 +43,7 @@ public class ExemplarController {
             @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
     })
     @GetMapping("/id/{id}")
-    public ResponseEntity<List<Exemplar>> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable Long id) {
         try {
             List<Exemplar> exemplares = exemplarService.buscarPorId(id);
             if (exemplares.isEmpty()) {
@@ -54,24 +54,4 @@ public class ExemplarController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-    @Operation(summary = "Buscar exemplares por IBSN")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Exemplares encontrados"),
-            @ApiResponse(responseCode = "404", description = "Nenhum exemplar encontrado"),
-            @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
-    })
-    @GetMapping("/ibsn/{ibsn}")
-    public ResponseEntity<List<Exemplar>> buscarPorIBSN(@PathVariable String ibsn) {
-        try {
-            List<Exemplar> exemplares = exemplarService.buscarPorIBSN(ibsn);
-            if (exemplares.isEmpty()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-            }
-            return ResponseEntity.ok(exemplares);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-
 }

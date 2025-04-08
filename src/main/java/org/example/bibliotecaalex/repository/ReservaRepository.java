@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
-    public Reserva findByUserIdAndExemplarId(Long userId,Long exemplarId);
-    public List<Reserva> findByUserId(Long userId);
+    public Reserva findByUserIdAndExemplarIdAndDataFimRealIsNull(Long userId,Long exemplarId);
+    public List<Reserva> findByUserIdAndDataFimRealIsNull(Long userId);
+    public  List<Reserva> findByExemplarIdAndDataFimRealIsNull(Long exemplarId);
+    public List<Reserva> findAllByDataFimRealIsNull();
 }

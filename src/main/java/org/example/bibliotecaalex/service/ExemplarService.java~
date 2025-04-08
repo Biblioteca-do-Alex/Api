@@ -18,7 +18,7 @@ public class ExemplarService {
         return exemplarRepository.save(exemplar);
     }
 
-    public List<Exemplar> buscarPorId(String id){
+    public List<Exemplar> buscarPorId(Long id){
         return exemplarRepository.findAllById(id);
     }
 }

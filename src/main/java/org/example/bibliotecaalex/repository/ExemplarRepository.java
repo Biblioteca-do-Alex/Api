@@ -8,4 +8,5 @@ import java.util.List;
 public interface ExemplarRepository extends JpaRepository<Exemplar, Long> {
 
     public List<Exemplar> findAllById(Long id);
+    public List<Exemplar> findAllByIbsn(String ibsn);
 }

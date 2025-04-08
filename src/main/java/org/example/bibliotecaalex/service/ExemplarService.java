@@ -21,4 +21,8 @@ public class ExemplarService {
     public List<Exemplar> buscarPorId(Long id){
         return exemplarRepository.findAllById(id);
     }
+
+    public List<Exemplar> buscarPorIBSN(String ibsn){
+        return exemplarRepository.findAllByIbsn(ibsn);
+    }
 }

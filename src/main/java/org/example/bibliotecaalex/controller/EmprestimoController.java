@@ -4,8 +4,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.example.bibliotecaalex.models.Emprestimo;
+import org.example.bibliotecaalex.models.Reserva;
 import org.example.bibliotecaalex.service.EmprestimoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,6 +82,43 @@ public class EmprestimoController {
             return ResponseEntity.ok(emprestimos);
         } else {
             return ResponseEntity.notFound().build();
+        }
+    }
+    @Operation(summary = "Buscar emprestimos por ID do exemplar onde data fim está vazio")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Emprestimos encontrados"),
+            @ApiResponse(responseCode = "404", description = "Nenhum emprestimo encontrado"),
+            @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
+    })
+    @GetMapping("/id/{id}")
+    public ResponseEntity<List<Emprestimo>> buscarPorIBSN(@PathVariable Long id) {
+        try {
+            List<Emprestimo> emprestimos = emprestimoService.buscarTodosVaziosPorId(id);
+            if (emprestimos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            return ResponseEntity.ok(emprestimos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @Operation(summary = "Buscar emprestimos vigenteso")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Emprestimos encontrados"),
+            @ApiResponse(responseCode = "404", description = "Nenhum emprestimo encontrado"),
+            @ApiResponse(responseCode = "500", description = "Erro interno ao buscar exemplares")
+    })
+    @GetMapping("/vigentes")
+    public ResponseEntity<List<Emprestimo>> buscarVigentes() {
+        try {
+            List<Emprestimo> emprestimos = emprestimoService.buscarTodosVigentes();
+            if (emprestimos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+            return ResponseEntity.ok(emprestimos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

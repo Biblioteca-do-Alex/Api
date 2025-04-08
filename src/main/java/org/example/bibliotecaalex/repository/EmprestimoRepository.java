@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
-    public Emprestimo findByUserIdAndExemplarId(Long userId, Long exemplarId);
-    public List<Emprestimo> findByUserId(Long userId);
+    public Emprestimo findByUserIdAndExemplarIdAndDataFimRealIsNull(Long userId, Long exemplarId);
+    public List<Emprestimo> findByUserIdAndDataFimRealIsNull(Long userId);
+    public List<Emprestimo> findByExemplarIdAndDataFimRealIsNull(Long exemplarId);
+    public List<Emprestimo> findAllByDataFimRealIsNull();
 }

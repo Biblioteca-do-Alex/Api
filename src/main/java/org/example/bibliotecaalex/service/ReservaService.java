@@ -28,11 +28,19 @@ public class ReservaService {
     }
 
     public Reserva buscarPorLivroEId(Long userId,Long exemplarId){
-        return reservaRepository.findByUserIdAndExemplarId(userId,exemplarId);
+        return reservaRepository.findByUserIdAndExemplarIdAndDataFimRealIsNull(userId,exemplarId);
     }
 
     public List<Reserva> buscarPorUserId(Long userId){
-        return reservaRepository.findByUserId(userId);
+        return reservaRepository.findByUserIdAndDataFimRealIsNull(userId);
+    }
+
+    public List<Reserva> BuscarTodosVaziosPorId(Long exemplarId) {
+        return reservaRepository.findByExemplarIdAndDataFimRealIsNull(exemplarId);
+    }
+
+    public List<Reserva> BuscarTodosVigentes() {
+        return reservaRepository.findAllByDataFimRealIsNull();
     }
 
 }

@@ -29,11 +29,18 @@ public class EmprestimoService {
     }
 
     public Emprestimo buscarPorLivroEId(Long userId,Long exemplarId){
-        return emprestimoRepository.findByUserIdAndExemplarId(userId,exemplarId);
+        return emprestimoRepository.findByUserIdAndExemplarIdAndDataFimRealIsNull(userId,exemplarId);
     }
 
     public List<Emprestimo> buscarPorUserId(Long userId){
-        return emprestimoRepository.findByUserId(userId);
+        return emprestimoRepository.findByUserIdAndDataFimRealIsNull(userId);
     }
 
+    public List<Emprestimo> buscarTodosVaziosPorId(Long exemplarId){
+        return emprestimoRepository.findByExemplarIdAndDataFimRealIsNull(exemplarId);
+    }
+
+    public List<Emprestimo> buscarTodosVigentes(){
+        return emprestimoRepository.findAllByDataFimRealIsNull();
+    }
 }
