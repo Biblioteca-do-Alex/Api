@@ -32,7 +32,7 @@ public class ReservaService {
     }
 
     public List<Reserva> buscarPorUserId(Long userId){
-        return reservaRepository.findByUserIdAndDataFimRealIsNull(userId);
+        return reservaRepository.findByUserId(userId);
     }
 
     public List<Reserva> BuscarTodosVaziosPorId(Long exemplarId) {
