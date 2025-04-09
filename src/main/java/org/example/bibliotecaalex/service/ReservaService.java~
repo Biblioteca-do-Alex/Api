@@ -40,11 +40,7 @@ public class ReservaService {
     }
 
     public List<Reserva> BuscarTodosVigentes() {
-        return reservaRepository.findAll();
+        return reservaRepository.findAllByDataFimRealIsNull();
     }
 
-    public Reserva deletarPorUserIdEExemplarId(Long userId,Long exemplarId) {
-        return reservaRepository.findByUserIdAndExemplarIdAndDataFimRealIsNull(userId, exemplarId);
-
-    }
 }
