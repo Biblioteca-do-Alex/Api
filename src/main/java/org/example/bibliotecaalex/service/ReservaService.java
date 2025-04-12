@@ -28,7 +28,7 @@ public class ReservaService {
     }
 
     public Reserva buscarPorLivroEId(Long userId,Long exemplarId){
-        return reservaRepository.findByUserIdAndExemplarIdAndDataFimRealIsNull(userId,exemplarId);
+        return reservaRepository.findByUserIdAndExemplarId(userId,exemplarId);
     }
 
     public List<Reserva> buscarPorUserId(Long userId){
@@ -36,7 +36,7 @@ public class ReservaService {
     }
 
     public List<Reserva> BuscarTodosVaziosPorId(Long exemplarId) {
-        return reservaRepository.findByExemplarIdAndDataFimRealIsNull(exemplarId);
+        return reservaRepository.findByExemplarId(exemplarId);
     }
 
     public List<Reserva> BuscarTodosVigentes() {
@@ -44,7 +44,7 @@ public class ReservaService {
     }
 
     public Reserva deletarPorUserIdEExemplarId(Long userId,Long exemplarId) {
-        return reservaRepository.findByUserIdAndExemplarIdAndDataFimRealIsNull(userId, exemplarId);
+        return reservaRepository.deleteReservaByUserIdAndExemplarId(userId, exemplarId);
 
     }
 }

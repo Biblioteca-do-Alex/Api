@@ -43,4 +43,8 @@ public class EmprestimoService {
     public List<Emprestimo> buscarTodosVigentes(){
         return emprestimoRepository.findAllByDataFimRealIsNull();
     }
+
+    public List<Emprestimo> buscarsPorIdExemplar(Long exemplarId){
+        return emprestimoRepository.findByExemplarId(exemplarId);
+    }
 }

@@ -11,4 +11,5 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
     public List<Emprestimo> findByUserIdAndDataFimRealIsNull(Long userId);
     public List<Emprestimo> findByExemplarIdAndDataFimRealIsNull(Long exemplarId);
     public List<Emprestimo> findAllByDataFimRealIsNull();
+    public List<Emprestimo> findByExemplarId(Long exemplarId);
 }
