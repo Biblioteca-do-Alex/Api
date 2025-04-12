@@ -39,8 +39,5 @@ public class Reserva {
     @Column(name = "datafimprevista", nullable = false)
     private LocalDate dataFimPrevista;
 
-    @Schema(description = "Data real de devolução", example = "2024-03-14")
-    @Column(name = "datafimreal")
-    private LocalDate dataFimReal;
 
 }
