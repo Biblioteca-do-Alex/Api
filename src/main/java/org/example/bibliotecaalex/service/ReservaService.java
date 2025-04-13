@@ -1,5 +1,6 @@
 package org.example.bibliotecaalex.service;
 
+import jakarta.transaction.Transactional;
 import org.example.bibliotecaalex.models.Livro;
 import org.example.bibliotecaalex.models.Reserva;
 import org.example.bibliotecaalex.repository.ReservaRepository;
@@ -42,9 +43,9 @@ public class ReservaService {
     public List<Reserva> BuscarTodosVigentes() {
         return reservaRepository.findAll();
     }
-
-    public Reserva deletarPorUserIdEExemplarId(Long userId,Long exemplarId) {
-        return reservaRepository.deleteReservaByUserIdAndExemplarId(userId, exemplarId);
+    @Transactional
+    public void deletarPorUserIdEExemplarId(Long userId,Long exemplarId) {
+        reservaRepository.deleteReservaByUserIdAndExemplarId(userId, exemplarId);
 
     }
 }

@@ -11,5 +11,5 @@ public interface ReservaRepository extends JpaRepository<Reserva, Long> {
     public List<Reserva> findByUserId(Long userId);
     public  List<Reserva> findByExemplarId(Long exemplarId);
     public List<Reserva> findAll();
-    public Reserva deleteReservaByUserIdAndExemplarId(Long userId,Long exemplarId);
+    public void deleteReservaByUserIdAndExemplarId(Long userId,Long exemplarId);
 }

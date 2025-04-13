@@ -95,8 +95,8 @@ public class ReservaController {
         }
     }
     @PostMapping("/deletar/{id}/{exemplarId}")
-    public ResponseEntity<Reserva> deletarReserva(@PathVariable Long id, @PathVariable Long exemplarId) {
-        Reserva deletar = reservaService.deletarPorUserIdEExemplarId(id, exemplarId);
-        return ResponseEntity.ok(deletar);
+    public ResponseEntity deletarReserva(@PathVariable Long id, @PathVariable Long exemplarId) {
+         reservaService.deletarPorUserIdEExemplarId(id, exemplarId);
+        return (ResponseEntity.ok().body("Reserva deletada com sucesso"));
     }
 }
